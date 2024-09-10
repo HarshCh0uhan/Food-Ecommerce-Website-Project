@@ -1,0 +1,22 @@
+{
+  "name": "netflixgpt-project",
+  "version": "1.0.0",
+  "description": "Making My First Rect Project Hope You All will Like it",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/HarshCh0uhan/NetflixGPT-Project.git)"
+  },
+  "keywords": [
+    "React",
+    "Namaste",
+    "React",
+    "Harsh",
+    "Chouhan"
+  ],
+  "author": "Harsh Chouhan",
+  "license": "ISC"
+}
