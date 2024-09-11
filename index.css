@@ -1,0 +1,11 @@
+.header{
+    display: flex;
+}
+
+.logo{
+    size: 20px;
+}
+
+.nav-items > ul{
+    display: flex;
+}
