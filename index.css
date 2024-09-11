@@ -1,11 +1,48 @@
+*{
+    background-color: rgb(255, 252, 248);
+}
+
 .header{
     display: flex;
+    justify-content: space-between;
 }
 
 .logo{
-    size: 20px;
+    width: 90px;
+}
+.logo:hover{
+    width: 100px;
+    background-color: rgb(255, 242, 222);
 }
 
 .nav-items > ul{
     display: flex;
+    list-style-type: none;
+}
+
+ul li:nth-child(odd){
+    background: rgb(255, 252, 248);
+}
+
+ul li:nth-child(odd):hover{
+    font-size: large;
+    background: rgb(255, 242, 222);
+}
+    
+ul li:nth-child(even){
+    background: rgb(255, 252, 248);
+}
+ul li:nth-child(even):hover{
+    font-size: large;
+    background: rgb(255, 242, 222);
+}
+    
+li{
+    padding:15px;
+    border-radius: 20px;
+    }
+
+.nav-items > ul > li{
+    padding: 10px;
+    margin: 10px;
 }

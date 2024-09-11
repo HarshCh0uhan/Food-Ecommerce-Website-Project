@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Header = () => (
-    <div className="header">
+const Header = () => {
+    return ( <div className="header">
         <div className="logo-container">
             <img className="logo" src="https://static.vecteezy.com/system/resources/previews/025/722/194/original/food-basket-icon-logo-isolated-on-white-background-vector.jpg" />
         </div>
@@ -16,13 +16,14 @@ const Header = () => (
             </ul>
         </div>
     </div>
-);
+    );
+};
 
-const AppLyout = () => (
-    <div className="app">
+const AppLyout = () => {
+    return <div className="app">
         <Header/>
     </div>
-);
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
