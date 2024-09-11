@@ -1,19 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", {id: "parent"}, [
-    React.createElement("div", {id: "child"}, [
-        React.createElement("h1", {}, "I'm an h1 tag"),
-        React.createElement("h2", {}, "I'm an h2 tag")
-    ]),
-    React.createElement("div", {id: "child2"}, [
-        React.createElement("h1", {}, "I'm an h1 tag"),
-        React.createElement("h2", {}, "I'm an h2 tag")
-    ]),
-]);
+// JSX (Transpiled before it reaches the JS using Babel in Parcel)
+// JSX => Reaact.createElement => ReactElement-JS Oject => HTMLElement(render)
 
-console.log(parent);
+const jsxHeading = <h1 id = "heading">React using JSX</h1>;
+
+//Both React Core and JSX make Ojects 
+
+//React Fuctional Components (Its Name always needs to be in Captial Letters)
+const HeadingComponent = () => {
+    return <h1>React Functional Components</h1>
+
+}
+const HeadingComponent2 = () => (
+    <h1>React Functional Components</h1>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<HeadingComponent/>);
