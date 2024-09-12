@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line} from "@remixicon/react";
 
+
+
 const Header = () => {
     return ( 
         <nav className="header">
@@ -29,14 +31,6 @@ const Header = () => {
       </nav>
     );
 };
-
-const ResCard = () => {
-    return(
-        <div className="res-card">
-
-        </div>
-    )
-}
 
 const Body = () => {
     return(
