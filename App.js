@@ -1,20 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {RiRestaurantLine} from "@remixicon/react";
+import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line} from "@remixicon/react";
 
 const Header = () => {
     return ( 
         <nav className="header">
-        <RiRestaurantLine
-            size={36} // set custom `width` and `height`
-            color="black" // set `fill` color
-            className="logo" // add custom class name
-        />
+        <div className="logo">
+            <RiRestaurantLine size={50} className="logo"/>
+        </div>
         <div className="nav-items">
-            <div>Home</div>
-          <div>Menu</div>
-          <div>Cart</div>
-          <div>Log in</div>
+            <div>Search
+                <RiSearchLine className="icon"/>
+            </div>
+          <div>Home
+            <RiHomeLine className="icon"/>
+          </div>
+          <div>Menu
+            <RiArrowDownSLine className="icon"/>
+          </div>
+          <div>Cart
+            <RiShoppingCart2Line className="icon"/>
+          </div>
+        </div>
+        <div className="acc">
+            <div>Log in</div>
+            <RiAccountCircleFill className="icon-2"/>
         </div>
       </nav>
     );
