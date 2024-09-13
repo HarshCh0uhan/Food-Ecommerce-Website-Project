@@ -6,7 +6,7 @@ import { useState } from "react";
 const Body = () => {
     // Local State Variable
 
-    const[listOfRes, setListOfRes] = useState([]);
+    const[listOfRes, setListOfRes] = useState(resList);
 
     return(
         <div className="body">
