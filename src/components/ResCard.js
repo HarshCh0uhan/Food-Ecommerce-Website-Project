@@ -9,7 +9,7 @@ const ResCard = (props) => {
 
     return (
         <div className="res-card">
-            <img className="res-logo" src={ + cloudinaryImageId} />
+            <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
             <div className="des">
                 <h3>{name}</h3>
                 <h4><RiStarSFill className="resCard-icons"/>
