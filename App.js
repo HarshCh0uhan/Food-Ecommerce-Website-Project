@@ -67,6 +67,11 @@ const Body = () => {
                 <ResCard/>
                 <ResCard/>
                 <ResCard/>
+                <ResCard/>
+                <ResCard/>
+                <ResCard/>
+                <ResCard/>
+                <ResCard/>
             </div>
         </div>
     )
