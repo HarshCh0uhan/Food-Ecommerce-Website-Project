@@ -95,7 +95,7 @@
 
   .res-card{
     width: 300px;
-    height: 290px;
+    height: 330px;
     border-radius: 20px;
     padding: 10px;
   }
@@ -120,6 +120,13 @@
   .add{
     color:#000000;
     font-weight: 100;
+  }
+
+  .resCard-icons{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
   }
   
   /* h3 {
