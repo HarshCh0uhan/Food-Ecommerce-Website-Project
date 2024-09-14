@@ -1,6 +1,7 @@
 import ResCard from "./ResCard";
 import resList from "../utils/mockData";
 import { useState } from "react";
+import { RiCloseCircleLine } from "@remixicon/react";
 
 
 const Body = () => {
@@ -16,7 +17,12 @@ const Body = () => {
                         (res) => res.info.avgRating > 4.5
                     );
                     setListOfRes(topRatedRes);
+
+                    
                 }}>Top Rated Restaurants</button>
+                <button className="close-btn" onClick={() => {
+                    setListOfRes(resList);
+                }}><RiCloseCircleLine/></button>
                 <button className="filter-btn" onClick={() => {
                     const lowDelTime = resList.filter(
                         (res) => res.info.sla.deliveryTime < 50
