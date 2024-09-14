@@ -1,4 +1,4 @@
-import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line, RiNotification4Fill} from "@remixicon/react";
+import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line, RiNotification4Fill, RiNotification4Line} from "@remixicon/react";
 
 const Header = () => {
     return ( 
@@ -19,9 +19,9 @@ const Header = () => {
           <div>Cart
             <RiShoppingCart2Line className="icon"/>
           </div>
+          <RiNotification4Line/>
         </div>
         <div className="acc">
-          <RiNotification4Fill/>
             <div>Log in</div>
             <RiAccountCircleFill className="icon-2"/>
         </div>
