@@ -1,6 +1,10 @@
 import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line, RiNotification4Fill, RiNotification4Line} from "@remixicon/react";
+import { useState } from "react";
 
 const Header = () => {
+
+  const [btnName, setBtnName] = useState("Login");
+
     return ( 
         <nav className="header">
         <div className="logo">
@@ -22,7 +26,9 @@ const Header = () => {
           <RiNotification4Line className="icon"/>
         </div>
         <div className="acc">
-            <button className="login">Log in</button>
+            <button className="login" onClick={() => {
+              (btnName == "Login") ? setBtnName("Logout") : setBtnName("Login");
+            }}>{btnName}</button>
             <RiAccountCircleFill className="icon-2"/>
         </div>
       </nav>
