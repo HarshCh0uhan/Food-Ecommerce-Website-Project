@@ -22,7 +22,7 @@ const Header = () => {
           <RiNotification4Line className="icon"/>
         </div>
         <div className="acc">
-            <div>Log in</div>
+            <button className="login">Log in</button>
             <RiAccountCircleFill className="icon-2"/>
         </div>
       </nav>
