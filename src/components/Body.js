@@ -1,8 +1,6 @@
 import ResCard from "./ResCard";
 import resList from "../utils/mockData";
 import { useState } from "react";
-import { RiCloseCircleLine } from "@remixicon/react";
-
 
 const Body = () => {
     // Local State Variable
