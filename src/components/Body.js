@@ -12,11 +12,17 @@ const Body = () => {
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
-                    const filteredList = resList.filter(
+                    const topRatedRes = resList.filter(
                         (res) => res.info.avgRating > 4.5
                     );
-                    setListOfRes(filteredList);
+                    setListOfRes(topRatedRes);
                 }}>Top Rated Restaurants</button>
+                <button className="filter-btn" onClick={() => {
+                    const lowDelTime = resList.filter(
+                        (res) => res.info.sla.deliveryTime < 50
+                    );
+                    setListOfRes(lowDelTime);
+                }}>Low Delivery Time</button>
                 <hr className="line"></hr>
             </div>
             <div className="res-container">
