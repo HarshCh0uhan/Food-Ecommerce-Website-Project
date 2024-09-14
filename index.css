@@ -69,13 +69,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     font-size: 20px;
     cursor: pointer;
   }
 
   .acc>div{
     padding: 10px 15px;
+    margin: 0px 3px 0px 20px;
   }
 
  .acc>div:hover{
