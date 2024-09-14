@@ -19,7 +19,7 @@ const Header = () => {
           <div>Cart
             <RiShoppingCart2Line className="icon"/>
           </div>
-          <RiNotification4Line/>
+          <RiNotification4Line className="icon"/>
         </div>
         <div className="acc">
             <div>Log in</div>
