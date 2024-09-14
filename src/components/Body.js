@@ -1,11 +1,22 @@
 import ResCard from "./ResCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Body = () => {
     // Local State Variable
 
     const[listOfRes, setListOfRes] = useState(resList);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () =>{
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5623169&lng=77.2803832&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+
+        setListOfRes(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    }
 
     return(
         <div className="body">
@@ -18,7 +29,6 @@ const Body = () => {
                         (res) => res.info.avgRating > 4.5
                     );
                     setListOfRes(topRatedRes);
-
                     
                 }}>Top Rated Restaurants</button>
                 <button className="filter-btn" onClick={() => {
