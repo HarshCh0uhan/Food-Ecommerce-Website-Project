@@ -29,14 +29,16 @@ const Body = () => {
     return (listOfRes.length === 0) ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
-                <button className="filter-btn" onClick={() => {
+            <button className="filter-btn" onClick={() => {
                     const topRatedRes = listOfRes.filter(
                         (res) => res.info.avgRating > 4.5
                     );
+
                     if(topRes == "Top Rated Restaurants"){
-                        setTopRes("X      Top Rated Restaurant");
+                        setTopRes("X Top Rated Restaurant");
                         setListOfRes(topRatedRes);
-                    }else {
+                    }
+                    else {
                         setTopRes("Top Rated Restaurants");
                         fetchData();
                     }            
@@ -44,13 +46,14 @@ const Body = () => {
                 }}>{topRes}</button>
                 <button className="filter-btn" onClick={() => {
                     const lowDelTime = listOfRes.filter(
-                        (res) => res.info.sla.deliveryTime < 40
+                        (res) => res.info.sla.deliveryTime < 30
                     );
 
                     if(lowTime == "Low Delivery Time"){
                         setLowTime("X Low Delivery Time");
                         setListOfRes(lowDelTime);
-                    }else {
+                    }
+                    else {
                         setLowTime("Low Delivery Time");
                         fetchData();
                     }

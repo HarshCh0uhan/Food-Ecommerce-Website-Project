@@ -5,14 +5,20 @@ const Header = () => {
 
   const [btnName, setBtnName] = useState("Login");
 
+  const [searchText, setSearchText] = useState("");
+
     return ( 
         <nav className="header">
         <div className="logo">
             <RiRestaurantLine size={50} className="logo"/>
         </div>
         <div className="nav-items">
-            <div>Search
-                <RiSearchLine className="icon"/>
+            <div className=".search">
+              <input type="search" placeholder="Search...." name="search" className="search-box" value={searchText} onChange={(e) => {
+                setSearchText(e.target.value);
+                }}/>
+               <button className="search-btn" onClick={() => {
+               }}><RiSearchLine className="icon"/></button>
             </div>
           <div>Home
             <RiHomeLine className="icon"/>

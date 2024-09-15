@@ -52,6 +52,35 @@
     cursor: pointer;
     box-shadow: 3px 0px 20px 0px #c0c0c0;
   }
+  
+  .search-box{
+    width: 200px;
+    height: 30px;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: middle;
+    font-size: x-large;
+    border: 0px solid black;
+    outline: none;
+  }
+
+  .search-box:hover{
+    border: none;
+    outline: none;
+  }
+
+  .search-box::placeholder{
+    text-align: right;
+  }
+
+  .search-btn{
+    border: none;
+    width: 30px;
+    padding: 0px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    font-size: 19px;
+  }
 
   .icon{
     display: inline-block;
