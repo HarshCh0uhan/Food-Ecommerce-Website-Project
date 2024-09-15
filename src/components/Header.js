@@ -1,7 +1,7 @@
 import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line, RiNotification4Fill, RiNotification4Line} from "@remixicon/react";
 import { useState } from "react";
 
-const Header = ({listOfRes, setListOfRes}) => {
+const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes}) => {
 
   const [searchText, setSearchText] = useState("");
 
@@ -9,7 +9,7 @@ const Header = ({listOfRes, setListOfRes}) => {
     const filteredRes = listOfRes.filter((res) => 
       res.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
-    setListOfRes(filteredRes);
+    setFilteredListOfRes(filteredRes);
   };
 
   const [btnName, setBtnName] = useState("Login");

@@ -3,7 +3,7 @@ import Shimmer from "./Shimmer";
 import { useState } from "react";
 
 
-const Body = ({ listOfRes, setListOfRes, fetchData }) => {
+const Body = ({ listOfRes, setListOfRes, fetchData, filteredListOfRes, setFilteredListOfRes}) => {
 
     const [topRes, setTopRes] = useState("Top Rated Restaurants");
 
@@ -21,7 +21,7 @@ const Body = ({ listOfRes, setListOfRes, fetchData }) => {
 
                     if(topRes === "Top Rated Restaurants"){
                         setTopRes("X Top Rated Restaurant");
-                        setListOfRes(topRatedRes);
+                        setFilteredListOfRes(topRatedRes);
                     }
                     else {
                         setTopRes("Top Rated Restaurants");
@@ -36,7 +36,7 @@ const Body = ({ listOfRes, setListOfRes, fetchData }) => {
 
                     if(lowTime == "Low Delivery Time"){
                         setLowTime("X Low Delivery Time");
-                        setListOfRes(lowDelTime);
+                        setFilteredListOfRes(lowDelTime);
                     }
                     else {
                         setLowTime("Low Delivery Time");
@@ -46,7 +46,7 @@ const Body = ({ listOfRes, setListOfRes, fetchData }) => {
             </div>
             <hr className="line"></hr>
             <div className="res-container">
-                {listOfRes.map(items => <ResCard key={items.info.id} resData={items}/>) }
+                {filteredListOfRes.map(items => <ResCard key={items.info.id} resData={items}/>) }
             </div>
         </div>
     )
