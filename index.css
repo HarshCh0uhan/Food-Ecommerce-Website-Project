@@ -242,6 +242,27 @@
     background-color: #c0c0c08a;
   }
 
+  main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+
+  .error{
+    background-color: #ffffff;
+    border: 1px solid #c0c0c07f;;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+  }
+  .error:hover{
+    box-shadow: 0px 0px 10px 0px #c0c0c0;
+    cursor: pointer;
+  }
+
   /* h3 {
     font-size: 15px;
     border: 1.5px solid #000000;

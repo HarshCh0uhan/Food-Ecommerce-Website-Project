@@ -5,6 +5,7 @@ import Body from "./components/Body";
 import Cart from "./components/Cart";
 import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./components/Error";
 
 const AppLyout = () => {
 
@@ -32,11 +33,12 @@ return <div className="app">
 const appRouter = createBrowserRouter([
     {
         path: "/",
-        element: <AppLyout/>
+        element: <AppLyout/>,
+        errorElement: <Error/>,
     },
     {
         path: "/cart",
-        element: <Cart/>
+        element: <Cart/>,
     }
 ])
 
