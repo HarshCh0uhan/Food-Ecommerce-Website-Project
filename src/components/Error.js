@@ -1,4 +1,4 @@
-import { RiErrorWarningFill, RiErrorWarningLine } from "@remixicon/react";
+import { RiErrorWarningLine } from "@remixicon/react";
 import { useRouteError } from "react-router-dom";
 
 const Error = () => {

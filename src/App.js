@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import Cart from "./components/Cart";
 import { useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import Error from "./components/Error";
 
 const AppLyout = () => {
@@ -26,7 +26,14 @@ const AppLyout = () => {
 
 return <div className="app">
         <Header listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
-        <Body listOfRes={listOfRes} setListOfRes={setListOfRes} fetchData={fetchData} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
+        <Outlet context={{
+        listOfRes,
+        setListOfRes,
+        filteredListOfRes,
+        setFilteredListOfRes,
+        fetchData
+      }}/>
+        {/* <Body listOfRes={listOfRes} setListOfRes={setListOfRes} fetchData={fetchData} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/> */}
     </div>
 };
 
@@ -34,12 +41,18 @@ const appRouter = createBrowserRouter([
     {
         path: "/",
         element: <AppLyout/>,
+        children:[
+            {
+                path: "/",
+                element: <Body/>
+            },
+            {
+                path: "/cart",
+                element: <Cart/>,
+            }
+        ],
         errorElement: <Error/>,
     },
-    {
-        path: "/cart",
-        element: <Cart/>,
-    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

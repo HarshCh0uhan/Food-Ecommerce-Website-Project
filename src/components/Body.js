@@ -1,9 +1,17 @@
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
+const Body = () => {
 
-const Body = ({ listOfRes, setListOfRes, fetchData, filteredListOfRes, setFilteredListOfRes}) => {
+    const {
+        listOfRes,
+        setListOfRes,
+        filteredListOfRes,
+        setFilteredListOfRes,
+        fetchData,
+      } = useOutletContext();
 
     const [topRes, setTopRes] = useState("Top Rated Restaurants");
 
