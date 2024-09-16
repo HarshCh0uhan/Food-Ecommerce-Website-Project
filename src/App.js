@@ -6,6 +6,7 @@ import Cart from "./components/Cart";
 import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import Error from "./components/Error";
+import AccountPage from "./components/AccountPage";
 
 const AppLyout = () => {
 
@@ -25,7 +26,7 @@ const AppLyout = () => {
     }, []);
 
 return <div className="app">
-        <Header listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
+        <Header fetchData={fetchData} listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
         <Outlet context={{
         listOfRes,
         setListOfRes,
@@ -49,6 +50,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart/>,
+            },
+            {
+                path: "/account_page",
+                element: <AccountPage/>
             }
         ],
         errorElement: <Error/>,

@@ -1,7 +1,8 @@
 import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line, RiNotification4Fill, RiNotification4Line} from "@remixicon/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes}) => {
+const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes, fetchData}) => {
 
   const [searchText, setSearchText] = useState("");
 
@@ -26,22 +27,32 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
                 }}/>
                <button className="search-btn" onClick={handleSearch}><RiSearchLine className="icon"/></button>
             </div>
-          <div>Home
-            <RiHomeLine className="icon"/>
-          </div>
+            <Link to="/">
+              <button className="btn" onClick={() => {
+                fetchData();
+              }}>
+                Home <RiHomeLine className="icon"/>
+              </button>
+            </Link>
+          <Link to="/cart">
+            <button className="btn">
+              Cart<RiShoppingCart2Line className="icon"/>
+            </button>
+          </Link>
           <div>Menu
             <RiArrowDownSLine className="icon"/>
           </div>
-          <div>Cart
-            <RiShoppingCart2Line className="icon"/>
-          </div>
-          <RiNotification4Line className="icon"/>
         </div>
         <div className="acc">
+          <RiNotification4Line className="icon"/>
             <button className="login" onClick={() => {
               (btnName == "Login") ? setBtnName("Logout") : setBtnName("Login");
             }}>{btnName}</button>
-            <RiAccountCircleFill className="icon-2"/>
+            <Link to="/account_page">
+              <button className="profile">
+                <RiAccountCircleFill className="icon-2"/>
+              </button>
+            </Link>
         </div>
       </nav>
     );

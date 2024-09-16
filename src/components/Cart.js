@@ -3,8 +3,7 @@ import Header from "./Header";
 const Cart = () => {
     return(
         <div>
-            <Header/>
-            <h1>This is Cart</h1>
+            <h1>Cart Page is under Construction...</h1>
         </div>
     );
 
