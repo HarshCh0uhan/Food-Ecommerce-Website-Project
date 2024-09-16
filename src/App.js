@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import Cart from "./components/Cart";
 import { useState, useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const AppLyout = () => {
 
@@ -27,6 +29,17 @@ return <div className="app">
     </div>
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLyout/>
+    },
+    {
+        path: "/cart",
+        element: <Cart/>
+    }
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLyout/>);
+root.render(<RouterProvider router={appRouter} />);
