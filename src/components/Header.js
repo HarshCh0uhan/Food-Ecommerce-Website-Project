@@ -18,10 +18,16 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
     return ( 
         <nav className="header">
         <div className="logo">
-            <RiRestaurantLine size={50} className="logo"/>
+        <Link to="/">
+              <button className="logo_btn" onClick={() => {
+                fetchData();
+              }}>
+              <RiRestaurantLine size={50} className="logo"/>
+              </button>
+            </Link>
         </div>
         <div className="nav-items">
-            <div className=".search">
+            <div className="search">
               <input type="search" placeholder="Search...." name="search" className="search-box" value={searchText} onChange={(e) => {
                 setSearchText(e.target.value);
                 }}/>

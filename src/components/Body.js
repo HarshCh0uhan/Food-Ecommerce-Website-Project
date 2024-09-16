@@ -2,6 +2,7 @@ import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import NoResult from "./NoResult";
 
 const Body = () => {
 
@@ -54,7 +55,7 @@ const Body = () => {
             </div>
             <hr className="line"></hr>
             <div className="res-container">
-                {filteredListOfRes.map(items => <ResCard key={items.info.id} resData={items}/>) }
+                {(filteredListOfRes.length == 0) ? <NoResult/> : filteredListOfRes.map(items => <ResCard key={items.info.id} resData={items}/>) }
             </div>
         </div>
     )
