@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import AccountPage from "./components/AccountPage";
+import RestaurantMenu from "./components/RestaurantMenu"
 
 const AppLyout = () => {
 
@@ -34,7 +35,6 @@ return <div className="app">
         setFilteredListOfRes,
         fetchData
       }}/>
-        {/* <Body listOfRes={listOfRes} setListOfRes={setListOfRes} fetchData={fetchData} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/> */}
     </div>
 };
 
@@ -54,6 +54,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/account_page",
                 element: <AccountPage/>
+            },
+            {
+                path: "/restaurant/:resId",
+                element: <RestaurantMenu/>
             }
         ],
         errorElement: <Error/>,

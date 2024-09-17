@@ -1,7 +1,7 @@
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import NoResult from "./NoResult";
 
 const Body = () => {
@@ -55,7 +55,11 @@ const Body = () => {
             </div>
             <hr className="line"></hr>
             <div className="res-container">
-                {(filteredListOfRes.length == 0) ? <NoResult/> : filteredListOfRes.map(items => <ResCard key={items.info.id} resData={items}/>) }
+                {(filteredListOfRes.length == 0) ? <NoResult/> : filteredListOfRes.map(items => 
+                <Link key={items.info.id} to={"/restaurant/"+items.info.id}>
+                    <ResCard resData={items}/>
+                </Link>
+                ) }
             </div>
         </div>
     )

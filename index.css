@@ -242,7 +242,7 @@
   }
 
   .line{
-    margin: 0px 150px 0px 140px;
+    margin: 0px 150px 30px 140px;
     border: 1px solid #d6d6d680;
   }
 
@@ -313,136 +313,17 @@
     color: #c0c0c0;
   }
 
-  /* h3 {
-    font-size: 15px;
-    border: 1.5px solid #000000;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-weight: 500;
-  }
-  
-  i {
-    border: 1.5px solid black;
-    padding: 6px 6px;
-    border-radius: 50px;
-  }
-  
-  #nav2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  #nav2 i {
-    color: white;
-    background-color: #ff6d38;
-    margin-right: 10px;
-  }
-  
-  #nav2 h1 {
-    font-weight: 550;
-  }
-  
-  #button1 {
-    font-size: 16px;
-    border: 1.5px solid black;
-    padding: 5px 15px;
-    border-radius: 20px;
-    background-color: white;
-  }
-  
-  #button2 {
-    color: white;
-    background-color: #ff6d38;
-    font-size: 18px;
-    border: 0px solid white;
-    padding: 5px 15px;
-    border-radius: 20px;
-  }
-  
-  article {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #heading {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  .menu_container{
     text-align: center;
-    font-size: 130px;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 50px;
   }
-  
-  img {
-    height: 400px;
-    width: 300px;
-    object-fit: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
+
+  .main{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
   }
-  
-  #img1 {
-    transform: translate(-50%, -50%) rotate(-30deg);
-    
+
+  .res_des{
+    margin: 10px 0px 30px 0px;
   }
-  
-  #img2 {
-    transform: translate(-50%, -50%) rotate(-20deg);
-  }
-  
-  #img3 {
-    transform: translate(-50%, -50%) rotate(-10deg);
-  }
-  
-  #img4 {
-    transform: translate(-50%, -50%);
-  }
-  
-  #bottom {
-    font-weight: 100;
-  
-  }
-  
-  #btm-lft {
-    position: absolute;
-    bottom: 5%;
-    left: 3%;
-  }
-  
-  #btm-rgt {
-    position: absolute;
-    bottom: 5%;
-    right: 3%;
-  }
-  
-  #i1 {
-    position: absolute;
-    bottom: 10%;
-    right: 4%;
-  }
-  
-  #i2 {
-    position: absolute;
-    bottom: 10%;
-    right: 7%;
-  }
-  
-  #i3 {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-  }
-  
-  #dwn-arr {
-    position: absolute;
-    bottom: 3%;
-    right: 50%;
-  }  */
