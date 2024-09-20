@@ -32,8 +32,6 @@ const RestaurantMenu = () => {
         availability, cuisines} = resInfo?.cards[2]?.card?.card?.info;
 
         const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;   
-
-        const menu_img_id = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards[0]?.card?.info?.imageId;
     
     return(
         <div className="menu_page">
@@ -60,7 +58,7 @@ const RestaurantMenu = () => {
                             <h3 className="title">{group.card.info.category}</h3>
                             <p className="res_menu_des">{group.card.info.description}</p>
                             <div>
-                                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + menu_img_id} />
+                                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + group.card.info.imageId} />
                             </div>
                         </div>
                         ))
