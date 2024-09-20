@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import { RiStarSFill, RiTimerFill, RiTimerLine } from "@remixicon/react";
 
 const RestaurantMenu = () => {
 
@@ -22,56 +23,50 @@ const RestaurantMenu = () => {
 
     const {name, 
         city, 
-        cloudinaryImageId, 
+        costForTwo, 
         locality, 
         areaName,  
         avgRating, 
         totalRatingsString, 
         sla, 
-        availability} = resInfo?.cards[2]?.card?.card?.info;
+        availability, cuisines} = resInfo?.cards[2]?.card?.card?.info;
 
-    const {variantGroups} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info?.variantsV2;    
-    const {addons} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info;    
+        const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;   
+
+        const menu_img_id = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards[0]?.card?.info?.imageId;
     
     return(
-        <div className="menu_container">
-            <div className="main">
+        <div className="menu_page">
+            <div className="res_name">
                 <h1>{name}</h1>
-                </div>
-            <div className="res_des">
-                    <h5>{availability.nextCloseTime} - {sla.deliveryTime} Mins</h5>
-                    <h5>{locality}, {areaName}, {city}</h5>
-                    <h5>{avgRating} - {totalRatingsString}</h5>
             </div>
+                <div className="res_des">
+                        <p><RiStarSFill className="resCard-icons"/>
+                            {avgRating} ({totalRatingsString}) - ₹ {costForTwo/100}</p>
+                        <p>{availability.nextCloseTime} - {sla.deliveryTime} Mins
+                            <RiTimerLine className="resCard-icons"/>
+                        </p>
+                        <p>{locality}, {areaName}, {city}</p>
+                        <p>{cuisines.join(", ")}</p>
+                </div>
             <hr className="line"></hr>
                 <div className="menu">
-                    <h1>Menu</h1>
-                    {
-                        variantGroups.map((group) => (
-                            <div key={group.groupId}>
-                              <h2>{group.name}</h2>
-                              {group.variations.map((variation) => (
-                                <div key={variation.id}>
-                                  <p>
-                                    {variation.name} - ₹{variation.price}
-                                  </p>
-                                </div>
-                              ))}
+                    <h1 className="res_head">Menu</h1>
+                    {itemCards && Array.isArray(itemCards) ? (
+                        itemCards.map((group) => (
+                        <div key={group.card.info.id} className="menu_card">
+                            <h2 className="title">{group.card.info.name}</h2>
+                            <h3 className="title">₹{(group.card.info.price / 100 || group.card.info.defaultPrice / 100)}</h3>
+                            <h3 className="title">{group.card.info.category}</h3>
+                            <p className="res_menu_des">{group.card.info.description}</p>
+                            <div>
+                                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + menu_img_id} />
                             </div>
-                          ))
-                    }
-                    {
-                        addons.map((group) => (
-                            <div key={group.groupId}>
-                                <h2>{group.groupName}</h2>
-                                {group.choices.map(item => (
-                                    <div key={item.id}>
-                                        <p>{item.name} - {item.price}</p>
-                                    </div>
-                                ))}
-                            </div>
+                        </div>
                         ))
-                    }
+                    ) : (
+                        <p>No Items Available.</p>
+                    )}
                 </div>    
         </div>
     )

@@ -45,9 +45,11 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
               Cart<RiShoppingCart2Line className="icon"/>
             </button>
           </Link>
-          <div>Menu
-            <RiArrowDownSLine className="icon"/>
-          </div>
+          <Link>
+            <button className="btn">Menu
+              <RiArrowDownSLine className="icon"/>
+            </button>
+          </Link>
         </div>
         <div className="acc">
           <RiNotification4Line className="icon"/>

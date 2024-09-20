@@ -48,24 +48,19 @@
     gap: 15px;
     font-size: 20px;
   }
-
-   .nav-items > div{
-    padding: 10px 15px;
-  } 
-
   
- a {
-  text-decoration: none; 
-  color: inherit;        
-}
+  a {
+    text-decoration: none; 
+    color: inherit;        
+  }
 
 .btn{
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 10px 15px;
-    background-color: #fff;
-    font-size: 19px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  background-color: #fff;
+  font-size: 20px;
+  vertical-align: middle;
   }
 
   .btn:hover{
@@ -74,15 +69,16 @@
     cursor: pointer;
     box-shadow: 3px 0px 20px 0px #c0c0c0;
   }
-
+  
   .nav-items > div:hover{
     border: 1px solid black;
     border-radius: 30px;
     cursor: pointer;
     box-shadow: 3px 0px 20px 0px #c0c0c0;
   }
-
+  
   .search{
+    padding: 10px 15px;
     border: 2px solid #d6d6d680;
     border-radius: 30px;
   }
@@ -120,7 +116,7 @@
     width: 30px;
     height: 30px;
     padding-left: 10px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .icon-2{
@@ -171,7 +167,7 @@
   .res-container{
     display: flex;
     flex-wrap: wrap;
-    margin: 30px 135px;
+    margin: 30px 130px;
     padding: 10px;
     gap: 30px;
   }
@@ -297,7 +293,7 @@
 
   .error{
     background-color: #ffffff;
-    border: 1px solid #c0c0c07f;;
+    border: 2px solid #c0c0c07f;
     border-radius: 10px;
     width: 300px;
     padding: 20px;
@@ -308,22 +304,47 @@
     cursor: pointer;
   }
 
-
   .no_result{
     color: #c0c0c0;
   }
 
-  .menu_container{
-    text-align: center;
-    margin-top: 50px;
+  .menu_page{
+    padding: 30px 500px 30px 500px;
+    width: 100%;
   }
-
-  .main{
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+  
+  .res_name{
+    margin: 50px 0px 10px 0px;
+    padding: 0px 0px 50px 50px;
   }
-
+  
   .res_des{
-    margin: 10px 0px 30px 0px;
+    font-size: large;
+    margin: 0px 0px 50px 0px;
+    padding: 30px;
+    border: 2px solid #c0c0c07f;
+    border-radius: 10px;
   }
+
+  .res_icon{
+    vertical-align: text-bottom;
+  }
+
+  .res_head{
+    margin: 50px 50px;
+  }
+
+  .menu_card{
+    padding: 30px;
+    border-bottom: 2px solid #c0c0c07f;
+  }
+
+  .title{
+    margin: 10px;
+  }
+  
+  .res_menu_des{
+    margin: 0px 200px 0px 0px;
+  }
+
+
