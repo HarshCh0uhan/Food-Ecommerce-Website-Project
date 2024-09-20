@@ -65,7 +65,7 @@ const RestaurantMenu = () => {
                         </div>
                         ))
                     ) : (
-                        <p>No Items Available.</p>
+                        <p>No Items Available</p>
                     )}
                 </div>    
         </div>
