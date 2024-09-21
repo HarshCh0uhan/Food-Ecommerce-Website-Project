@@ -347,4 +347,13 @@
     margin: 0px 200px 0px 0px;
   }
 
+  .online{
+    font-size: 10px;
+  }
 
+  .offline{
+    color: #c0c0c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

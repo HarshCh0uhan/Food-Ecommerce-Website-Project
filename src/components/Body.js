@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import NoResult from "./NoResult";
+import useOnlineStatus from "./useOnlineStatus";
 
 const Body = () => {
 
@@ -17,10 +18,19 @@ const Body = () => {
     const [topRes, setTopRes] = useState("Top Rated Restaurants");
 
     const [lowTime, setLowTime] = useState("Low Delivery Time");
+
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus == false)
+        return (
+            <h1 className="offline">
+                You are offline!!!
+            </h1>
+        );
     
 //  Conditional Rendering or Shimmer UI
 
-    return (listOfRes.length === 0) ? <Shimmer/> : (
+    return (listOfRes.length == 0) ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
             <button className="filter-btn" onClick={() => {
@@ -57,7 +67,7 @@ const Body = () => {
             <div className="res-container">
                 {(filteredListOfRes.length == 0) ? <NoResult/> : filteredListOfRes.map(items => 
                 <Link key={items.info.id} to={"/restaurant/"+items.info.id}>
-                    <ResCard resData={items}/>
+                    <ResCard resData={items.info}/>
                 </Link>
                 ) }
             </div>

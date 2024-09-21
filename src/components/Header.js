@@ -1,6 +1,7 @@
 import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiSearchLine, RiShoppingCart2Line, RiNotification4Fill, RiNotification4Line} from "@remixicon/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "./useOnlineStatus";
 
 const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes, fetchData}) => {
 
@@ -14,6 +15,8 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
   };
 
   const [btnName, setBtnName] = useState("Login");
+
+  const onlineStatus = useOnlineStatus();
 
     return ( 
         <nav className="header">
@@ -56,6 +59,9 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
             <button className="login" onClick={() => {
               (btnName == "Login") ? setBtnName("Logout") : setBtnName("Login");
             }}>{btnName}</button>
+
+              <div className="online">{(onlineStatus == true) ? "🟢" : "🔴"}</div>
+
             <Link to="/account_page">
               <button className="profile">
                 <RiAccountCircleFill className="icon-2"/>
