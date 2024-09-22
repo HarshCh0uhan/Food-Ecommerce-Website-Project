@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import AccountPage from "./components/AccountPage";
 import RestaurantMenu from "./components/RestaurantMenu"
+import { RESCARD_URL } from "./utils/constants";
 
 const AppLyout = () => {
 
@@ -15,10 +16,8 @@ const AppLyout = () => {
     const[filteredListOfRes, setFilteredListOfRes] = useState([]);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(RESCARD_URL);
         const json = await data.json();
-
-        console.log(data);
         
         setListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -27,6 +26,8 @@ const AppLyout = () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    console.log(listOfRes)
 
 return <div className="app">
         <Header fetchData={fetchData} listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>

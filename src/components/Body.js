@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard, { withPromotedLabel } from "./ResCard";
 import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
@@ -20,6 +20,8 @@ const Body = () => {
     const [lowTime, setLowTime] = useState("Low Delivery Time");
 
     const onlineStatus = useOnlineStatus();
+
+    const PromotedRes = withPromotedLabel(ResCard);
 
     if(onlineStatus == false)
         return (
@@ -67,7 +69,7 @@ const Body = () => {
             <div className="res-container">
                 {(filteredListOfRes.length == 0) ? <NoResult/> : filteredListOfRes.map(items => 
                 <Link key={items.info.id} to={"/restaurant/"+items.info.id}>
-                    <ResCard resData={items.info}/>
+                    {(items.info.isOpen) ? (<PromotedRes resData={items.info}/>) : (<ResCard resData={items.info}/>)}
                 </Link>
                 ) }
             </div>
