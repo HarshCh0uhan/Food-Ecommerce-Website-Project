@@ -60,7 +60,7 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
               (btnName == "Login") ? setBtnName("Logout") : setBtnName("Login");
             }}>{btnName}</button>
 
-              <div className="online">{(onlineStatus == true) ? "🟢" : "🔴"}</div>
+              <span className="online">{(onlineStatus == true) ? "🟢" : "🔴"}</span>
 
             <Link to="/account_page">
               <button className="profile">

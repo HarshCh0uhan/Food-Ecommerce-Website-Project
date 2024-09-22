@@ -43,11 +43,13 @@ const RestaurantMenu = () => {
                     {itemCards && Array.isArray(itemCards) ? (
                         itemCards.map((group) => (
                         <div key={group.card.info.id} className="menu_card">
-                            <h2 className="title">{group.card.info.name}</h2>
-                            <h3 className="title">₹{(group.card.info.price / 100 || group.card.info.defaultPrice / 100)}</h3>
-                            <h3 className="title">{group.card.info.category}</h3>
-                            <p className="res_menu_des">{group.card.info.description}</p>
-                            <div>
+                            <div className="menu_des">
+                                <h2 className="title">{group.card.info.name}</h2>
+                                <h3 className="title">₹{(group.card.info.price / 100 || group.card.info.defaultPrice / 100)}</h3>
+                                <h3 className="title">{group.card.info.category}</h3>
+                                <p className="res_menu_des">{group.card.info.description}</p>
+                            </div>
+                            <div className="menu_img">
                                 <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + group.card.info.imageId} />
                             </div>
                         </div>
