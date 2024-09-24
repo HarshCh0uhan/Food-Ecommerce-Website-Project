@@ -27,7 +27,7 @@ const AppLyout = () => {
         fetchData();
     }, []);
 
-    console.log(listOfRes)
+    console.log(listOfRes);
 
 return <div className="app">
         <Header fetchData={fetchData} listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
