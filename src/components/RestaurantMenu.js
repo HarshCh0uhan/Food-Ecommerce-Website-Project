@@ -1,7 +1,8 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { RiStarSFill, RiTimerLine } from "@remixicon/react";
 import useResMenu from "../utils/useResMenu";
+import ResCategory from "./ResCategory";
+import { RiStarSFill, RiTimerLine } from "@remixicon/react";
 
 const RestaurantMenu = () => {
 
@@ -21,7 +22,12 @@ const RestaurantMenu = () => {
         sla, 
         availability, cuisines} = resInfo?.cards[2]?.card?.card?.info;
 
-        const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;   
+        // const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;  
+        const cate = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((cat) => 
+            cat?.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        ); 
+
+        console.log(cate);
     
     return(
         <div className="menu_page">
@@ -40,19 +46,9 @@ const RestaurantMenu = () => {
             <hr className="line"></hr>
                 <div className="menu">
                     <h1 className="res_head">Menu</h1>
-                    {itemCards && Array.isArray(itemCards) ? (
-                        itemCards.map((group) => (
-                        <div key={group.card.info.id} className="menu_card">
-                            <div className="menu_des">
-                                <h2 className="title">{group.card.info.name}</h2>
-                                <h3 className="title">₹{(group.card.info.price / 100 || group.card.info.defaultPrice / 100)}</h3>
-                                <h3 className="title">{group.card.info.category}</h3>
-                                <p className="res_menu_des">{group.card.info.description}</p>
-                            </div>
-                            <div className="menu_img">
-                                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + group.card.info.imageId} />
-                            </div>
-                        </div>
+                    {cate && Array.isArray(cate) ? (
+                        cate.map((group) => (
+                        <ResCategory key={group?.card?.card?.title} data={group?.card?.card}/>
                         ))
                     ) : (
                         <p>No Items Available</p>
