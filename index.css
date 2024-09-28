@@ -428,3 +428,41 @@
     font-weight: bold;
     font-size: medium;
   }
+
+  .user-name{
+    text-align: center;
+    font-weight: bold;
+    color: #b1afaf;
+    margin-top: 50px; 
+  }
+
+  .update-page{
+    margin: 30px 300px;
+    padding: 10px 100px 10px 100px;
+    font-size: 30px;
+  }
+
+  .update-page-header{
+    padding: 50px;
+  }
+
+  .update-box{
+    font-size: x-large;
+    vertical-align: middle;
+    margin-left: 30px;
+    width: 50%;
+    height: 30px;
+    border: 2px solid #c0c0c071;
+    border-radius: 30px;
+    outline: none;
+  }
+
+  .update-box:hover{
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px 0px #c0c0c0;
+    outline: none;
+  }
+
+  .update-box::placeholder{
+    text-align: left;
+  }

@@ -12,7 +12,7 @@ const ResCard = (props) => {
                 <h3>{name}</h3>
                 <h4><RiStarSFill className="resCard-icons"/>
                     {avgRating} - {sla?.deliveryTime} mins</h4>
-                <h4 className="rescard_des">{cuisines.join(", ")}</h4>
+                <h4 className="rescard_des">{cuisines?.join(", ")}</h4>
                 <h4 className="rescard_des">{areaName}</h4>
             </div>
         </div>

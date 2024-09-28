@@ -1,6 +1,5 @@
 import { RiArrowDownSLine } from "@remixicon/react";
 import ItemList from "./ItemList";
-import { useState } from "react";
 
 const ResCategory = ({data, showItems, setShowIndex}) => {
 

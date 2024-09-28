@@ -6,7 +6,7 @@ import useOnlineStatus from "./useOnlineStatus";
 const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes, fetchData}) => {
 
   const handleSearch = () => {
-    const filteredRes = listOfRes.filter((res) => 
+    const filteredRes = listOfRes?.filter((res) => 
       res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredListOfRes(filteredRes);
@@ -32,7 +32,7 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
         <div className="nav-items">
             <div className="search">
               <input type="search" placeholder="Search...." name="search" className="search-box" value={searchText} onChange={(e) => {
-                setSearchText(e.target.value);
+                setSearchText(e?.target?.value);
                 }}/>
                <button className="search-btn" onClick={handleSearch}><RiSearchLine className="icon"/></button>
             </div>

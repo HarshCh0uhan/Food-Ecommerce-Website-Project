@@ -5,7 +5,7 @@ const ItemList = ({items}) => {
     console.log(items);
     return(
         <div>
-           {items.map((group) => (
+           {items?.map((group) => (
             <div key={group?.card?.info?.id} className="menu_card">
                 <div className="menu_des">
                     <h2 className="title">{group?.card?.info?.name}</h2>

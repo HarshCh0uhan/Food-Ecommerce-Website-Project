@@ -1,9 +1,10 @@
 import ResCard, { withPromotedLabel } from "./ResCard";
 import Shimmer from "./Shimmer";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import NoResult from "./NoResult";
 import useOnlineStatus from "./useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
 
@@ -14,6 +15,8 @@ const Body = () => {
         setFilteredListOfRes,
         fetchData,
       } = useOutletContext();
+
+    const {loggedInUser} = useContext(UserContext);
 
     const [topRes, setTopRes] = useState("Top Rated Restaurants");
 
@@ -32,8 +35,9 @@ const Body = () => {
     
 //  Conditional Rendering or Shimmer UI
 
-    return (listOfRes === null) ? <Shimmer/> : (
+return (listOfRes?.length == 0) ? <Shimmer/> : (
         <div className="body">
+            <h1 className="user-name">Hello, {loggedInUser} </h1>
             <div className="filter">
             <button className="filter-btn" onClick={() => {
                     const topRatedRes = listOfRes?.filter(
@@ -67,7 +71,7 @@ const Body = () => {
             </div>
             <hr className="line"></hr>
             <div className="res-container">
-                {(filteredListOfRes === null) ? <NoResult/> : filteredListOfRes.map((items) => 
+                {(filteredListOfRes?.length === 0) ? <NoResult/> : filteredListOfRes?.map((items) => 
                 <Link key={items?.info?.id} to={"/restaurant/"+items?.info?.id}>
                     {(items?.info?.isOpen) ? (<PromotedRes resData={items?.info}/>) : (<ResCard resData={items?.info}/>)}
                 </Link>

@@ -9,8 +9,21 @@ import Error from "./components/Error";
 import AccountPage from "./components/AccountPage";
 import RestaurantMenu from "./components/RestaurantMenu"
 import { RESCARD_URL } from "./utils/constants";
+import UserContext from "./utils/UserContext";
 
 const AppLyout = () => {
+
+    // Authentication
+
+    const [userName, setUserName] = useState([]);
+
+    useEffect(() => {
+        const data = {
+            name: "Harsh Chouhan"
+        }
+
+        setUserName(data.name);
+    }, []);
 
     const[listOfRes, setListOfRes] = useState([]);
     const[filteredListOfRes, setFilteredListOfRes] = useState([]);
@@ -30,7 +43,9 @@ const AppLyout = () => {
     console.log(listOfRes);
     console.log(filteredListOfRes);
 
-return <div className="app">
+return (
+    <UserContext.Provider value={{loggedInUser: userName, setUserName}} >
+    <div className="app">
         <Header fetchData={fetchData} listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
         <Outlet context={{
         listOfRes,
@@ -40,6 +55,8 @@ return <div className="app">
         fetchData
       }}/>
     </div>
+    </UserContext.Provider>
+    )
 };
 
 const appRouter = createBrowserRouter([

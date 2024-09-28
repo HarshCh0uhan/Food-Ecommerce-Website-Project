@@ -46,7 +46,7 @@ const RestaurantMenu = () => {
                             <RiTimerLine className="resCard-icons"/>
                         </p>
                         <p>{locality}, {areaName}, {city}</p>
-                        <p>{cuisines.join(", ")}</p>
+                        <p>{cuisines?.join(", ")}</p>
                 </div>
             <hr className="line"></hr>
                 <div className="menu">
