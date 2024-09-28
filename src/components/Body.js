@@ -32,12 +32,12 @@ const Body = () => {
     
 //  Conditional Rendering or Shimmer UI
 
-    return (listOfRes.length == 0) ? <Shimmer/> : (
+    return (listOfRes === null) ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
             <button className="filter-btn" onClick={() => {
-                    const topRatedRes = listOfRes.filter(
-                        (res) => res.info.avgRating > 4.5
+                    const topRatedRes = listOfRes?.filter(
+                        (res) => res?.info?.avgRating > 4.5
                     );
 
                     if(topRes === "Top Rated Restaurants"){
@@ -51,8 +51,8 @@ const Body = () => {
                     
                 }}>{topRes}</button>
                 <button className="filter-btn" onClick={() => {
-                    const lowDelTime = listOfRes.filter(
-                        (res) => res.info.sla.deliveryTime < 30
+                    const lowDelTime = listOfRes?.filter(
+                        (res) => res?.info?.sla?.deliveryTime < 30
                     );
 
                     if(lowTime == "Low Delivery Time"){
@@ -67,9 +67,9 @@ const Body = () => {
             </div>
             <hr className="line"></hr>
             <div className="res-container">
-                {(filteredListOfRes.length == 0) ? <NoResult/> : filteredListOfRes.map(items => 
-                <Link key={items.info.id} to={"/restaurant/"+items.info.id}>
-                    {(items.info.isOpen) ? (<PromotedRes resData={items.info}/>) : (<ResCard resData={items.info}/>)}
+                {(filteredListOfRes === null) ? <NoResult/> : filteredListOfRes.map((items) => 
+                <Link key={items?.info?.id} to={"/restaurant/"+items?.info?.id}>
+                    {(items?.info?.isOpen) ? (<PromotedRes resData={items?.info}/>) : (<ResCard resData={items?.info}/>)}
                 </Link>
                 ) }
             </div>

@@ -14,10 +14,10 @@ const AppLyout = () => {
 
     const[listOfRes, setListOfRes] = useState([]);
     const[filteredListOfRes, setFilteredListOfRes] = useState([]);
-
+    
     const fetchData = async () => {
         const data = await fetch(RESCARD_URL);
-        const json = await data.json();
+        const json = await data?.json();
         
         setListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -26,8 +26,9 @@ const AppLyout = () => {
     useEffect(() => {
         fetchData();
     }, []);
-
+    
     console.log(listOfRes);
+    console.log(filteredListOfRes);
 
 return <div className="app">
         <Header fetchData={fetchData} listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>

@@ -2,21 +2,21 @@ import { RiArrowDownSLine } from "@remixicon/react";
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const ResCategory = ({data}) => {
+const ResCategory = ({data, showItems, setShowIndex}) => {
 
-    const [showItems, setShowItems] = useState(false);
+    console.log(showItems)
 
     const handleClick = () => {
-        setShowItems(!showItems);
-    }
+        setShowIndex();
+    };
 
     return (
-            <div className="accord-container">
-                <div className="accord-header" onClick={handleClick}>
-                    <span>{data.title} ({data.itemCards.length})</span>
+            <div className="accord-container" onClick={handleClick}>
+                <div className="accord-header">
+                    <span>{data?.title} ({data?.itemCards?.length})</span>
                     <span className="icon"><RiArrowDownSLine/></span>
                 </div>
-                {showItems && <ItemList items={data.itemCards}/>}
+                {(showItems) && <ItemList items={data?.itemCards} /> }
             </div>
     );
 };

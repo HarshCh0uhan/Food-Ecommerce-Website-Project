@@ -8,7 +8,7 @@ const Error = () => {
         <main>
             <div className="error">
                 <RiErrorWarningLine/>
-                <h1>{err.status} : {err.statusText}</h1>
+                <h1>{err?.status} : {err?.statusText}</h1>
                 <h5>OOPS SOMETHING WENT WRONG!!!</h5>
             </div>
         </main>

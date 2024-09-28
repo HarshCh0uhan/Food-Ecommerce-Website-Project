@@ -5,14 +5,14 @@ import useOnlineStatus from "./useOnlineStatus";
 
 const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes, fetchData}) => {
 
-  const [searchText, setSearchText] = useState("");
-
   const handleSearch = () => {
     const filteredRes = listOfRes.filter((res) => 
-      res.info.name.toLowerCase().includes(searchText.toLowerCase())
+      res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredListOfRes(filteredRes);
   };
+  
+  const [searchText, setSearchText] = useState("");
 
   const [btnName, setBtnName] = useState("Login");
 

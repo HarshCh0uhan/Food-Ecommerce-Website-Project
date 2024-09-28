@@ -3,7 +3,7 @@ import CDN_URL from "../utils/constants";
 
 const ResCard = (props) => {
     
-    const {cloudinaryImageId, name, avgRating, sla, cuisines, areaName} = props.resData;
+    const {cloudinaryImageId, name, avgRating, sla, cuisines, areaName} = props?.resData;
 
     return (
         <div className="res-card">
@@ -11,7 +11,7 @@ const ResCard = (props) => {
             <div className="des">
                 <h3>{name}</h3>
                 <h4><RiStarSFill className="resCard-icons"/>
-                    {avgRating} - {sla.deliveryTime} mins</h4>
+                    {avgRating} - {sla?.deliveryTime} mins</h4>
                 <h4 className="rescard_des">{cuisines.join(", ")}</h4>
                 <h4 className="rescard_des">{areaName}</h4>
             </div>

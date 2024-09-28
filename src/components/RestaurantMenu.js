@@ -3,14 +3,16 @@ import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 import ResCategory from "./ResCategory";
 import { RiStarSFill, RiTimerLine } from "@remixicon/react";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
-
     const {resId} = useParams(); 
-    
+
+    const [showIndex, setShowIndex] = useState(null);
+
     const resInfo = useResMenu(resId);
 
-    if(resInfo.length === 0) return <Shimmer/>
+    if(resInfo === null) return <Shimmer/>
 
     const {name, 
         city, 
@@ -20,14 +22,17 @@ const RestaurantMenu = () => {
         avgRating, 
         totalRatingsString, 
         sla, 
-        availability, cuisines} = resInfo?.cards[2]?.card?.card?.info;
+        availability, cuisines} = resInfo?.cards[2]?.card?.card?.info || {};
 
-        // const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;  
-        const cate = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((cat) => 
-            cat?.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-        ); 
+        const cards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-        console.log(cate);
+        console.log(cards);
+
+        const categories = cards?.filter((c) => 
+            c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        );
+        
+        console.log(categories);
     
     return(
         <div className="menu_page">
@@ -37,7 +42,7 @@ const RestaurantMenu = () => {
                 <div className="res_des">
                         <p><RiStarSFill className="resCard-icons"/>
                             {avgRating} ({totalRatingsString}) - ₹ {costForTwo/100}</p>
-                        <p>{availability.nextCloseTime} - {sla.deliveryTime} Mins
+                        <p>{availability?.nextCloseTime} - {sla?.deliveryTime} Mins
                             <RiTimerLine className="resCard-icons"/>
                         </p>
                         <p>{locality}, {areaName}, {city}</p>
@@ -46,18 +51,17 @@ const RestaurantMenu = () => {
             <hr className="line"></hr>
                 <div className="menu">
                     <h1 className="res_head">Menu</h1>
-                    {cate && Array.isArray(cate) ? (
-                        cate.map((group) => (
-                        <ResCategory key={group?.card?.card?.title} data={group?.card?.card}/>
+                    {
+                      categories?.map((group, index) => (
+                        <ResCategory key={group?.card?.card?.title} 
+                                    data={group?.card?.card} 
+                                    showItems={index === showIndex} 
+                                    setShowIndex={() => setShowIndex(index === showIndex ? null : index)} />
                         ))
-                    ) : (
-                        <p>No Items Available</p>
-                    )}
+                    }
                 </div>    
         </div>
     )
-
-
 };
 
 export default RestaurantMenu;

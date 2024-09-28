@@ -36,6 +36,6 @@
     "remixicon": "^4.3.0"
   },
   "browserlist": [
-    "last 2 versions"
+    "last 10 versions"
   ]
 }

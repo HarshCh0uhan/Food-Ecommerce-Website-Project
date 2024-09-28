@@ -4,12 +4,17 @@ import { MENU_URL } from "./constants";
 
 const useResMenu = (resId) => {
 
-    const [resInfo, setResInfo] = useState([]);
+    const [resInfo, setResInfo] = useState(null);
     
     const fetchMenu = async () => {
-        const data = await fetch(MENU_URL+resId);
-        const json = await data.json();
-    setResInfo(json.data);
+        try{
+            const data = await fetch(MENU_URL+resId);
+            const json = await data?.json();
+            setResInfo(json?.data);
+        }
+        catch(error){
+            console.error("Error while fetching data:", error);
+        }
     };
 
     useEffect(() => {
@@ -17,6 +22,6 @@ const useResMenu = (resId) => {
     }, []);
 
     return resInfo;
-}
+};
 
 export default useResMenu;
