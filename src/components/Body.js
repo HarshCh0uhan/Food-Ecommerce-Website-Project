@@ -42,7 +42,7 @@ return (listOfRes?.length == 0) ? <Shimmer/> : (
             <button className="filter-btn" onClick={() => {
                     const topRatedRes = listOfRes?.filter(
                         (res) => res?.info?.avgRating > 4.5
-                    );
+                    )?.sort((a, b) => b?.info?.avgRating - a?.info?.avgRating);
 
                     if(topRes === "Top Rated Restaurants"){
                         setTopRes("X Top Rated Restaurant");
@@ -57,7 +57,7 @@ return (listOfRes?.length == 0) ? <Shimmer/> : (
                 <button className="filter-btn" onClick={() => {
                     const lowDelTime = listOfRes?.filter(
                         (res) => res?.info?.sla?.deliveryTime < 30
-                    );
+                    )?.sort((a, b) => a?.info?.sla?.deliveryTime - b?.info?.sla?.deliveryTime);
 
                     if(lowTime == "Low Delivery Time"){
                         setLowTime("X Low Delivery Time");

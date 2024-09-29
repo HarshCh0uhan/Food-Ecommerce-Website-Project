@@ -10,8 +10,8 @@ const ResCategory = ({data, showItems, setShowIndex}) => {
     };
 
     return (
-            <div className="accord-container" onClick={handleClick}>
-                <div className="accord-header">
+            <div className="accord-container" >
+                <div className="accord-header" onClick={handleClick}>
                     <span>{data?.title} ({data?.itemCards?.length})</span>
                     <span className="icon"><RiArrowDownSLine/></span>
                 </div>

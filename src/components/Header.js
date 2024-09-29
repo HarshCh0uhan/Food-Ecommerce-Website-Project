@@ -2,8 +2,12 @@ import {RiRestaurantLine, RiArrowDownSLine, RiHomeLine, RiAccountCircleFill, RiS
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes, fetchData}) => {
+
+  const cartItems = useSelector((store) => store.cart.items); 
+  console.log(cartItems);
 
   const handleSearch = () => {
     const filteredRes = listOfRes?.filter((res) => 
@@ -44,7 +48,7 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
               </button>
             </Link>
           <Link to="/cart">
-            <button className="btn">
+            <button className="btn">({cartItems.length})
               Cart<RiShoppingCart2Line className="icon"/>
             </button>
           </Link>

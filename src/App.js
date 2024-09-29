@@ -10,6 +10,8 @@ import AccountPage from "./components/AccountPage";
 import RestaurantMenu from "./components/RestaurantMenu"
 import { RESCARD_URL } from "./utils/constants";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLyout = () => {
 
@@ -44,6 +46,7 @@ const AppLyout = () => {
     console.log(filteredListOfRes);
 
 return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{loggedInUser: userName, setUserName}} >
     <div className="app">
         <Header fetchData={fetchData} listOfRes={listOfRes} setListOfRes={setListOfRes} filteredListOfRes={filteredListOfRes} setFilteredListOfRes={setFilteredListOfRes}/>
@@ -56,6 +59,7 @@ return (
       }}/>
     </div>
     </UserContext.Provider>
+    </Provider>
     )
 };
 

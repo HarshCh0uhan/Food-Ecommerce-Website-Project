@@ -63,7 +63,7 @@
   padding: 10px 15px;
   background-color: #fff;
   font-size: 20px;
-  vertical-align: middle;
+  vertical-align: text-top;
   }
 
   .btn:hover{
@@ -119,7 +119,7 @@
     width: 30px;
     height: 30px;
     padding-left: 10px;
-    vertical-align: text-bottom;
+    vertical-align: middle;
   }
 
   .icon-2{
@@ -413,7 +413,7 @@
     margin-bottom: 20px;
     border: 2px solid #c0c0c075;
     border-radius: 20px;
-    padding: 30px;
+    padding: 20px;
   }
   
   .accord-container:hover{
@@ -426,7 +426,7 @@
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    font-size: medium;
+    font-size: large;
   }
 
   .user-name{
@@ -465,4 +465,36 @@
 
   .update-box::placeholder{
     text-align: left;
+  }
+
+  .cart-page{
+    text-align: center;
+    margin: 30x;
+    padding: 30px;
+  }
+
+  .cart-header{
+    font-size: xx-large;
+    font-weight: bold;
+  }
+
+  .cart-items{
+    width: 50%;
+    margin: auto;
+  }
+
+  .cart-clear{
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    color: #000000;
+    border: 2px solid #c0c0c06e;
+    border-radius: 30px;
+    font-weight: bolder;
+  }
+
+  .cart-clear:hover{
+    cursor: pointer;
+    border: 2px solid black;
+    box-shadow: 3px 3px 5px 0px #c0c0c0;
   }
