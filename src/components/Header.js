@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRes, fetchData}) => {
 
   const cartItems = useSelector((store) => store.cart.items); 
-  console.log(cartItems);
 
   const handleSearch = () => {
     const filteredRes = listOfRes?.filter((res) => 
@@ -35,10 +34,10 @@ const Header = ({listOfRes, setListOfRes, filteredListOfRes, setFilteredListOfRe
         </div>
         <div className="nav-items">
             <div className="search">
-              <input type="search" placeholder="Search...." name="search" className="search-box" value={searchText} onChange={(e) => {
+              <input type="search" data-testid="search-input" placeholder="Search...." name="search" className="search-box" value={searchText} onChange={(e) => {
                 setSearchText(e?.target?.value);
                 }}/>
-               <button className="search-btn" onClick={handleSearch}><RiSearchLine className="icon"/></button>
+               <button className="search-btn" aria-label="Search" onClick={handleSearch}><RiSearchLine className="icon"/></button>
             </div>
             <Link to="/">
               <button className="btn" onClick={() => {

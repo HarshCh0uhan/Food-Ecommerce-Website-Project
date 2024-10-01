@@ -2,11 +2,13 @@ import {RiStarSFill} from "@remixicon/react";
 import CDN_URL from "../utils/constants";
 
 const ResCard = (props) => {
+
+    const {resData} = props;
     
-    const {cloudinaryImageId, name, avgRating, sla, cuisines, areaName} = props?.resData;
+    const {cloudinaryImageId, name, avgRating, sla, cuisines, areaName} = resData;
 
     return (
-        <div className="res-card">
+        <div data-testid="resCard" className="res-card">
             <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
             <div className="des">
                 <h3>{name}</h3>
