@@ -33,13 +33,25 @@ const AppLyout = () => {
     const fetchData = async () => {
         const data = await fetch(RESCARD_URL);
         const json = await data?.json();
+
+        console.log("two");
         
         setListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-    
+
+    // const fetchData = () => {
+    //     fetch(RESCARD_URL).then(() => {
+    //         console.log("success");
+    //     }).catch(() => {
+    //         console.log("error");
+    //     })
+    // }
+
     useEffect(() => {
+        console.log("random");
         fetchData();
+
     }, []);
     
     console.log(listOfRes);

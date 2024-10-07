@@ -18,8 +18,9 @@ const useResMenu = (resId) => {
     };
 
     useEffect(() => {
+        if(!resId)return
         fetchMenu();
-    }, []);
+    }, [resId]);
 
     return resInfo;
 };
