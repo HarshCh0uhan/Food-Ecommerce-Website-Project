@@ -2,7 +2,7 @@
 
 const NoResult = () => {
     return (
-            <h1 className="no_result">NO RESULT FOUND ?</h1>
+            <h1 className="no_result">SORRY!!! NO RESULT FOUND ?</h1>
     );
 };
 
